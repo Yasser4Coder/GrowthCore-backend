@@ -42,6 +42,8 @@ export default router;
  *   post:
  *     tags: [Chat]
  *     summary: Send a chat message
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -51,13 +53,21 @@ export default router;
  *             properties:
  *               sender:
  *                 type: string
+ *                 description: The sender's identifier
+ *                 example: "user123"
  *               receiver:
  *                 type: string
+ *                 description: The receiver's identifier
+ *                 example: "user456"
  *               message:
  *                 type: string
+ *                 description: The chat message content
+ *                 example: "Hello, how are you?"
  *     responses:
  *       201:
  *         description: Message sent successfully
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
  *       500:
  *         description: Error sending message
  */

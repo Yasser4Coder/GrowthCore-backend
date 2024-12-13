@@ -1,11 +1,12 @@
 import express from "express";
 import { uploadCsvMiddleware } from "../middlewares/fileUpload.js";
+import { verifyToken } from "../middlewares/authMiddleware.js";
 import { uploadCsv, getCsvFile } from "../controllers/fileUploadController.js";
 
 const router = express.Router();
 
-router.post("/upload-csv", uploadCsvMiddleware, uploadCsv);
-router.get("/get-csv/:id", getCsvFile);
+router.post("/upload-csv", uploadCsvMiddleware, verifyToken, uploadCsv);
+router.get("/get-csv/:id", getCsvFile, verifyToken);
 
 export default router;
 
