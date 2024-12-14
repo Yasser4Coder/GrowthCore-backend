@@ -19,6 +19,7 @@ export default router;
  *         - name
  *         - email
  *         - password
+ *         - role
  *       properties:
  *         id:
  *           type: string
@@ -32,10 +33,14 @@ export default router;
  *         password:
  *           type: string
  *           description: The password of the user
+ *         role:
+ *           type: string
+ *           description: The role should be investor or company-owner
  *       example:
  *         name: John Doe
  *         email: john@example.com
  *         password: password123
+ *         role: "investor or company-owner"
  */
 
 /**
