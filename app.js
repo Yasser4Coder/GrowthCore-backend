@@ -8,6 +8,7 @@ import { createServer } from "http";
 import { swaggerSpecs } from "./config/swagger.js";
 import chatRoutes from "./routes/chatRoutes.js";
 import csvUploadRoutes from "./routes/uploadCsvRoutes.js";
+import histogramRoutes from "./routes/hostogramRoutes.js";
 import { Server } from "socket.io";
 
 // Load environment variables
@@ -35,6 +36,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/upload", csvUploadRoutes);
+app.use("/api/histograms/", histogramRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
